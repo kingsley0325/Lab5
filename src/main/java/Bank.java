@@ -7,11 +7,16 @@
  *
  * @see <a href="https://cs125.cs.illinois.edu/lab/8/">Lab 8 Description</a>
  */
-public class Bank {
+public final class Bank {
+    /**
+     * bankname.
+     */
+    private String bankName;
 
-    public String bankName;
-
-    public Bank() {
+    /**
+     * constructor.
+     */
+    private Bank() {
         bankName = "Illini Bank";
     }
 
@@ -25,10 +30,18 @@ public class Bank {
      * @param amount to withdraw (double)
      * @return boolean
      */
-    public boolean withdrawMoney(final BankAccount bankAccount, final double amount) {
+    private boolean withdrawMoney(final BankAccount bankAccount, final double amount) {
         /*
          * Implement this function
          */
+        double balance = 0;
+        if (balance >= amount) {
+            balance = balance - amount;
+            System.out.println("Sufficient Balance");
+        } else {
+            System.out.println("No money");
+        }
+        return true;
     }
 
     /**
@@ -41,7 +54,7 @@ public class Bank {
      * @param amount to deposit
      * @return boolean
      */
-    public boolean depositMoney(final BankAccount bankAccount, final double amount) {
+    private boolean depositMoney(final BankAccount bankAccount, final double amount) {
         /*
          * Implement this function
          */
@@ -59,7 +72,7 @@ public class Bank {
      * @return boolean
      */
 
-    public boolean transferMoney(final BankAccount source, final BankAccount destination,
+    private boolean transferMoney(final BankAccount source, final BankAccount destination,
             final double amount) {
         /*
          * Implement this function
@@ -79,7 +92,7 @@ public class Bank {
          */
     }
 
-    public static int totalAccounts = 0;
+    private static int totalAccounts = 0;
     /**
      * Uses static variable to get number of bank accounts opened.
      *
